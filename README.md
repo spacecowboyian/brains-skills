@@ -13,34 +13,32 @@ A skill is a self-contained unit for a knowledge domain. It includes:
 
 ## Available skills
 
-| Skill | Description | Raw instructions link |
-|-------|-------------|----------------------|
-| [book-notes](skills/book-notes/) | Capture and query book insights, quotes, and takeaways | [instructions.md](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/book-notes/instructions.md) |
-| [weekly-review](skills/weekly-review/) | Reflect on each week and synthesize into next actions | [instructions.md](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/weekly-review/instructions.md) |
-| [meeting-notes](skills/meeting-notes/) | Structured meeting records with decisions and action items | [instructions.md](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/meeting-notes/instructions.md) |
-| [project-tracker](skills/project-tracker/) | Track project objectives, status, team, and risks | [instructions.md](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/project-tracker/instructions.md) |
-| [recipes](skills/recipes/) | Build a personal recipe database with meal planning support | [instructions.md](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/recipes/instructions.md) |
+| Skill | Description | Install URL |
+|-------|-------------|-------------|
+| [book-notes](skills/book-notes/) | Capture and query book insights, quotes, and takeaways | [skill.md](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/book-notes/skill.md) |
+| [weekly-review](skills/weekly-review/) | Reflect on each week and synthesize into next actions | [skill.md](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/weekly-review/skill.md) |
+| [meeting-notes](skills/meeting-notes/) | Structured meeting records with decisions and action items | [skill.md](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/meeting-notes/skill.md) |
+| [project-tracker](skills/project-tracker/) | Track project objectives, status, team, and risks | [skill.md](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/project-tracker/skill.md) |
+| [recipes](skills/recipes/) | Build a personal recipe database with meal planning support | [skill.md](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/recipes/skill.md) |
 
 ## How to install a skill
 
-### Tell your AI directly (fastest)
+### Tell your AI directly (one URL)
 
-Paste this into your AI chat, replacing `<skill-id>` with one of the skill names above:
+Each skill has a `skill.md` — a single file with agent instructions + page template combined. Paste this into your AI chat:
 
 ```
-Read the skill at https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/<skill-id>/instructions.md
-and https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/<skill-id>/template.md
+Read https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/<skill-id>/skill.md
 then set up a new project in my Brains knowledge base using this skill.
 ```
 
 Example for recipes:
 ```
-Read the skill at https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/recipes/instructions.md
-and https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/recipes/template.md
+Read https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/recipes/skill.md
 then set up a new project in my Brains knowledge base using this skill.
 ```
 
-Use the `raw.githubusercontent.com` URLs above — they fetch directly and work in any AI chat tool.
+Use the raw URL — it fetches directly without needing the repo to be indexed.
 
 ### Copy-paste manually
 

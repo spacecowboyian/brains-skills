@@ -13,15 +13,18 @@ A skill should be:
 
 ## Skill structure
 
-Every skill lives in `skills/<skill-id>/` and contains exactly these four files:
+Every skill lives in `skills/<skill-id>/` and contains exactly these five files:
 
 ```
 skills/<skill-id>/
-  skill.json
-  template.md
-  instructions.md
-  README.md
+  skill.json       # machine-readable metadata
+  skill.md         # combined agent instructions + template (the install file)
+  template.md      # page template only
+  instructions.md  # agent instructions only
+  README.md        # human description and usage tips
 ```
+
+`skill.md` = `instructions.md` + `template.md` combined. It's the single URL users share with their AI to install the skill. Keep it in sync with the separate files.
 
 ### skill.json
 
