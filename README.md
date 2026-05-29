@@ -1,6 +1,6 @@
 # brains-skills
 
-A community library of domain-specific knowledge base skills for [Brains](https://brainsapp.com). Each skill is a folder with a template, agent instructions, and a manifest — everything you need to start collecting and querying knowledge in a specific domain.
+A community library of domain-specific knowledge base skills for [Brains](https://usebrains.app). Each skill is a folder with a template, agent instructions, and a manifest — everything you need to start collecting and querying knowledge in a specific domain.
 
 ## What is a skill?
 
