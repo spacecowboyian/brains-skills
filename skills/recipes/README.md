@@ -1,35 +1,43 @@
-# Recipes skill
+# Recipes
 
-Build a personal recipe database that your AI agent can query for meal ideas, dietary filtering, and shopping list generation.
+> Personal recipe database with meal planning, dietary filtering, and shopping list generation.
 
-## Who it's for
+## Install
 
-Anyone who wants to organize their recipes in a personal knowledge base and use an AI assistant for meal planning.
+Paste into your AI chat:
 
-## What you get
+```
+Read https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/recipes/skill.md
+then set up a new project in my Brains knowledge base using this skill.
+```
 
-- **Template:** A recipe page with frontmatter (cuisine, meal type, prep/cook time, servings, dietary tags, rating) and sections for ingredients, instructions, notes, variations, and pairings
-- **Instructions:** Agent guidance for recipe discovery, meal planning, shopping list generation, and recipe scaling
+## What this skill does
 
-## How to install
+Sets up a recipe knowledge base with a structured page template and an AI agent configured to work with it. Once you have pages, the agent can:
 
-1. Copy `template.md` into your Brains pages folder. Create one page per recipe.
-2. Append `instructions.md` to your AI agent's instructions file.
-3. Start adding recipes. After 15–20, the meal planning queries become genuinely useful.
+- Find recipes by cuisine, meal type, dietary tags, or prep time
+- Plan meals for a week around your dietary constraints
+- Generate consolidated shopping lists across multiple recipes
+- Scale recipe quantities for different serving sizes
+- Recommend what to make based on what's quick, what you haven't made recently, or similar dishes
 
 ## Example queries
 
-- "What can I make for dinner tonight that's under 30 minutes?"
-- "Plan meals for next week — no gluten, mostly vegetarian"
-- "Generate a shopping list for Tuesday's dinner and Saturday's dinner"
-- "What Italian recipes do I have?"
-- "I want to make something similar to the Thai green curry — what else do I have?"
-- "Scale the banana bread recipe for 16 servings instead of 8"
+- `What can I make for dinner under 30 minutes?`
+- `Plan meals for next week — vegetarian, no gluten`
+- `Generate a shopping list for Tuesday and Saturday dinners`
+- `Scale the banana bread to 16 servings`
+- `What Italian recipes do I have with a rating of 4 or higher?`
 
-## Tips
+## Files
 
-- Fill in `dietary_tags` carefully — it's what makes filtering reliable
-- Add a `rating` after you make the recipe, not when you add it
-- The `notes` section is where recipes get better over time: what substitutions worked, what to skip
-- Use `source` to credit the original cookbook or website
-- `variations` is useful for "same technique, different protein" adaptations
+| File | Purpose |
+|------|---------|
+| [`skill.md`](skill.md) | Install file — agent instructions + template combined |
+| [`skill.json`](skill.json) | Metadata manifest |
+| [`template.md`](template.md) | Page template (standalone) |
+| [`instructions.md`](instructions.md) | Agent instructions (standalone) |
+
+## License
+
+[MIT](../../LICENSE)

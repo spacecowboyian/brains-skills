@@ -1,95 +1,136 @@
 # Contributing to brains-skills
 
-Thanks for wanting to add a skill. Here's how.
-
-## What makes a good skill
-
-A skill should be:
-
-- **Domain-specific** — scoped to one type of knowledge (books, meetings, recipes, etc.)
-- **Template-first** — the `template.md` should be immediately useful without reading the README
-- **Agent-aware** — `instructions.md` should give an AI agent real, actionable guidance, not generic platitudes
-- **Model-agnostic** — instructions should work with any LLM, not reference Claude/GPT/Copilot by name
-
 ## Skill structure
 
-Every skill lives in `skills/<skill-id>/` and contains exactly these five files:
+Every skill lives in `skills/<skill-id>/` with exactly five files:
 
 ```
 skills/<skill-id>/
-  skill.json       # machine-readable metadata
-  skill.md         # combined agent instructions + template (the install file)
-  template.md      # page template only
-  instructions.md  # agent instructions only
-  README.md        # human description and usage tips
+  skill.md          ← Required. Agent instructions + page template combined. This is the install file.
+  skill.json        ← Required. Machine-readable manifest.
+  template.md       ← Required. Page template only (standalone).
+  instructions.md   ← Required. Agent instructions only (standalone).
+  README.md         ← Required. Human docs: install prompt, capabilities, example queries.
 ```
 
-`skill.md` = `instructions.md` + `template.md` combined. It's the single URL users share with their AI to install the skill. Keep it in sync with the separate files.
+`skill.md` is the primary artifact. It must contain both the agent instructions and the page template so a user can share one URL with their AI and have everything needed. Keep it in sync with `template.md` and `instructions.md`.
 
-### skill.json
+---
+
+## File specs
+
+### `skill.md`
+
+Structure:
+
+```markdown
+# <Skill Name> Skill
+
+**Skill ID:** <id>
+**Version:** 1.0.0
+**Domains:** <domains>
+**Install:** fetch this file and follow the "How to use" section
+
+## How to use
+
+[One paragraph: what the AI should do after reading this file — set up project, create pages, offer first entry]
+
+---
+
+## Agent Instructions
+
+[Contents of instructions.md]
+
+---
+
+## Page Template
+
+[Fenced markdown block containing contents of template.md]
+```
+
+### `skill.json`
 
 ```json
 {
   "name": "Human-Readable Name",
   "id": "kebab-case-id",
   "version": "1.0.0",
-  "description": "One-line description of what this skill covers",
+  "description": "One-line description",
   "domains": ["personal", "work"],
-  "fields": ["field1", "field2", "field3"],
+  "fields": ["field1", "field2"],
   "author": "Your Name or Handle",
   "license": "MIT"
 }
 ```
 
 - `id` must match the folder name exactly
-- `domains` should use existing tags where possible: `personal`, `work`, `productivity`, `health`, `finance`, `food`, `learning`, `automotive`
-- `fields` are the key frontmatter fields in the template (not an exhaustive list)
+- `domains`: use existing tags where possible — `personal`, `work`, `productivity`, `health`, `finance`, `food`, `learning`, `automotive`
+- `fields`: key frontmatter fields in the template
 
-### template.md
+### `template.md`
 
-Lead with YAML frontmatter. Every required field should be in frontmatter. Optional fields can live in the body. Add section headings that guide the user. Include brief inline comments (`<!-- like this -->`) where the purpose of a section isn't obvious.
+Lead with YAML frontmatter. Every required field in frontmatter. Section headings that guide the user. Brief inline comments (`<!-- like this -->`) where a section's purpose isn't obvious.
 
-### instructions.md
+### `instructions.md`
 
-Write these for the AI agent that will work with pages using this template. Be concrete:
+Agent-facing instructions. Be concrete:
+- What queries should the agent answer well?
+- What cross-page patterns should it surface?
+- How should it handle missing data?
+- What output format works best?
 
-- What kinds of queries should the agent answer well?
-- What patterns across pages are useful to surface?
-- How should the agent handle missing or incomplete data?
-- What output formats work best for this domain?
+Keep under ~400 words. No AI model names — these instructions must work with any LLM.
 
-Keep instructions under ~400 words. Model-agnostic language only.
+### `README.md`
 
-### README.md
+Structure:
 
-- What is this skill for?
-- Who is it for?
-- How do you use it? (copy-paste flow)
-- 2–3 example queries you can ask your agent once you have data
+```markdown
+# <Skill Name>
 
-## Submission process
+> One-line description.
+
+## Install
+
+[The one-URL install prompt, with the raw.githubusercontent.com URL]
+
+## What this skill does
+
+[Capabilities — what queries work, what the agent can do]
+
+## Example queries
+
+[3–5 concrete queries the user can try]
+
+## Files
+
+[Table of files in this skill folder]
+
+## License
+
+MIT
+```
+
+---
+
+## Submission
 
 1. Fork this repo
-2. Create your skill folder in `skills/<your-skill-id>/`
-3. Add all four files
-4. Open a pull request with:
-   - PR title: `feat: add <skill-name> skill`
-   - A brief description of the domain and why it's worth adding
-5. A maintainer will review for completeness and quality
+2. Create `skills/<your-skill-id>/` with all five files
+3. Open a PR: title `feat: add <skill-name> skill`
 
-## Quality bar
+### Review checklist
 
-PRs will be reviewed for:
-
-- [ ] All four files present
+- [ ] All five files present
+- [ ] `skill.md` contains both agent instructions and page template
 - [ ] `skill.json` valid, `id` matches folder name
-- [ ] Template has real frontmatter fields (not placeholder names)
-- [ ] Template sections are useful, not just `## Section 1`
-- [ ] Instructions are actionable and specific to the domain
-- [ ] README explains use case and gives example queries
-- [ ] No AI model names in instructions
-- [ ] MIT license
+- [ ] Template has real frontmatter fields (not placeholder names like `field1`)
+- [ ] Template sections are specific to the domain (not generic `## Section 1`)
+- [ ] Instructions are actionable and domain-specific
+- [ ] README leads with the install prompt and includes example queries
+- [ ] No AI model names in `skill.md` or `instructions.md`
+- [ ] MIT license in `skill.json`
 
 ## Questions
 
-Open an issue. Label it `question`.
+Open an issue and label it `question`.

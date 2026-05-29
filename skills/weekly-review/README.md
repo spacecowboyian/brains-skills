@@ -1,33 +1,43 @@
-# Weekly Review skill
+# Weekly Review
 
-A structured template for reflecting on each week — and agent instructions that help you spot patterns, surface loose threads, and turn reflection into action.
+> Reflect on each week and synthesize wins, challenges, lessons, and next-week goals into action.
 
-## Who it's for
+## Install
 
-Anyone who does (or wants to do) weekly reviews as part of their personal productivity practice.
+Paste into your AI chat:
 
-## What you get
+```
+Read https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/weekly-review/skill.md
+then set up a new project in my Brains knowledge base using this skill.
+```
 
-- **Template:** A structured weekly review page with fields for energy, wins, challenges, lessons, next-week goals, and loose threads
-- **Instructions:** Agent guidance for reflection prompts, pattern recognition across weeks, and turning retrospectives into action
+## What this skill does
 
-## How to install
+Sets up a weekly review knowledge base with a structured page template and an AI agent configured to work with it. Once you have pages, the agent can:
 
-1. Copy `template.md` into your Brains pages folder. Create a new page from this template each week (name it by week start date, e.g. `2026-05-26`).
-2. Append `instructions.md` to your AI agent's instructions file.
-3. After 4–6 weeks of data, the pattern recognition becomes genuinely useful.
+- Prompt you with open questions to fill out this week's review (not a form — actual reflection)
+- Spot patterns across weeks in energy, challenges, and recurring themes
+- Flag goals that keep slipping from one week into the next
+- Synthesize any time period into a narrative summary
+- Turn a review's lessons into concrete next-week actions
 
 ## Example queries
 
-- "Help me fill out this week's review" (agent prompts with open questions)
-- "What patterns do you see in my energy levels over the last month?"
-- "What keeps showing up in my loose threads?"
-- "How was Q1 overall? What were my main wins and challenges?"
-- "Turn last week's lessons into action items for next week"
+- `Help me fill out this week's review`
+- `What patterns do you see in my energy over the last month?`
+- `What keeps showing up in my loose threads?`
+- `How was Q1 overall?`
+- `Turn last week's lessons into action items`
 
-## Tips
+## Files
 
-- Fill it out on Friday afternoon or Sunday evening — whichever makes the week feel more closed
-- The `what I'd do differently` section is the highest-value field for learning. Don't skip it.
-- Short entries are fine. Five honest words beat five empty paragraphs.
-- The `theme` frontmatter field is optional but useful — one word forces you to characterize the week
+| File | Purpose |
+|------|---------|
+| [`skill.md`](skill.md) | Install file — agent instructions + template combined |
+| [`skill.json`](skill.json) | Metadata manifest |
+| [`template.md`](template.md) | Page template (standalone) |
+| [`instructions.md`](instructions.md) | Agent instructions (standalone) |
+
+## License
+
+[MIT](../../LICENSE)

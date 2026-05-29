@@ -1,33 +1,43 @@
-# Project Tracker skill
+# Project Tracker
 
-A structured template for tracking projects from objective to delivery — with agent support for status rollups, risk flagging, and timeline forecasting across all your projects at once.
+> Track project objectives, status, deliverables, team, blockers, and risks — with cross-project rollups and timeline forecasting.
 
-## Who it's for
+## Install
 
-Anyone managing multiple projects who wants a single place to track objectives, deliverables, blockers, and risks — and ask questions across all of them.
+Paste into your AI chat:
 
-## What you get
+```
+Read https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/project-tracker/skill.md
+then set up a new project in my Brains knowledge base using this skill.
+```
 
-- **Template:** A project page with frontmatter (status, owner, dates, priority) and sections for objectives, deliverables, team, timeline, blockers, risks, status updates, and notes
-- **Instructions:** Agent guidance for cross-project rollups, blocker aggregation, risk flagging, and retrospectives
+## What this skill does
 
-## How to install
+Sets up a project tracking knowledge base with a structured page template and an AI agent configured to work with it. Once you have pages, the agent can:
 
-1. Copy `template.md` into your Brains pages folder. Create one page per project.
-2. Append `instructions.md` to your AI agent's instructions file.
-3. Keep `status_updates` current (newest at top) — it's what drives useful status summaries.
+- Give status rollups across all active projects grouped by health (in-progress, at-risk, on-hold)
+- Aggregate blockers across projects and identify who owns each unblock action
+- Flag projects at risk of missing their target date based on milestone status and unresolved blockers
+- Show team workload by aggregating deliverable ownership across projects
+- Write retrospectives for completed projects
 
 ## Example queries
 
-- "Give me a status rollup of all active projects"
-- "What's blocking us across all in-progress projects?"
-- "Which projects are at risk of missing their target date?"
-- "Who has the most open deliverables right now?"
-- "Write a retrospective for the API redesign project"
+- `Give me a status overview of all active projects`
+- `What's blocking us right now?`
+- `Which projects are at risk of missing their deadline?`
+- `Who has the most open deliverables?`
+- `Write a retrospective for the API redesign project`
 
-## Tips
+## Files
 
-- Update `status` in frontmatter as the project moves (planning → in-progress → at-risk → complete)
-- Add a status update entry every week or every major milestone — even one sentence
-- The `risks` table is most useful when filled in at the start, not just when things go wrong
-- Use `priority` in frontmatter to triage when everything feels urgent
+| File | Purpose |
+|------|---------|
+| [`skill.md`](skill.md) | Install file — agent instructions + template combined |
+| [`skill.json`](skill.json) | Metadata manifest |
+| [`template.md`](template.md) | Page template (standalone) |
+| [`instructions.md`](instructions.md) | Agent instructions (standalone) |
+
+## License
+
+[MIT](../../LICENSE)

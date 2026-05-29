@@ -1,34 +1,43 @@
-# Book Notes skill
+# Book Notes
 
-Capture what you read and get more out of it. This skill gives you a template for logging books and agent instructions that let you query across your reading history by theme, author, or insight.
+> Capture what you read and surface insights, quotes, and connections across your entire reading history.
 
-## Who it's for
+## Install
 
-Anyone who reads regularly and wants to remember what they learned — and surface it later when it's relevant.
+Paste into your AI chat:
 
-## What you get
+```
+Read https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/book-notes/skill.md
+then set up a new project in my Brains knowledge base using this skill.
+```
 
-- **Template:** A structured page for each book, with frontmatter (title, author, year, rating, date read) and sections for summary, key ideas, quotes, and personal impact
-- **Instructions:** Agent guidance for recommendations, synthesis across books, and quote retrieval
+## What this skill does
 
-## How to install
+Sets up a book notes knowledge base with a structured page template and an AI agent configured to work with it. Once you have pages, the agent can:
 
-1. Copy `template.md` into your Brains pages folder. Use it as the base when creating a new book note page.
-2. Append `instructions.md` to your AI agent's instructions file (e.g. `brainsapp-claude.md`).
-3. Start adding books. After 5–10 entries, the agent starts returning useful cross-book synthesis.
+- Recommend books from your library by theme, topic, or author
+- Synthesize what you've learned across multiple books on a topic
+- Retrieve your best quotes on any subject with attribution
+- Surface connections between books you may not have noticed
+- Show your highest-rated or most impactful reads
 
 ## Example queries
 
-Once you have a few book notes:
+- `What books have I read about leadership?`
+- `Synthesize what I've learned about decision-making across everything I've read`
+- `What are my best quotes about creativity?`
+- `What's the highest-rated book I read this year?`
+- `Which books changed me the most?`
 
-- "What books have I read about leadership?"
-- "Synthesize what I've learned about habit formation across everything I've read"
-- "What are my best quotes about decision-making?"
-- "What's the highest-rated book I read last year?"
-- "What books would you recommend I read next based on what I've liked?"
+## Files
 
-## Tips
+| File | Purpose |
+|------|---------|
+| [`skill.md`](skill.md) | Install file — agent instructions + template combined |
+| [`skill.json`](skill.json) | Metadata manifest |
+| [`template.md`](template.md) | Page template (standalone) |
+| [`instructions.md`](instructions.md) | Agent instructions (standalone) |
 
-- Fill in `how_it_changed_me` even for short entries — it's the field that makes synthesis feel personal
-- Use `tags` to cluster books by theme (e.g. `psychology`, `history`, `fiction`)
-- 3-star ratings are fine — not everything needs to be life-changing to be worth logging
+## License
+
+[MIT](../../LICENSE)
