@@ -1,0 +1,10 @@
+{
+  "name": "Zettelkasten",
+  "id": "zettelkasten",
+  "version": "1.0.0",
+  "description": "Atomic, linked notes where each idea gets its own card and connections between cards surface emergent insight",
+  "domains": ["personal", "research", "knowledge-management"],
+  "fields": ["zettel_id", "type", "title", "tags", "links"],
+  "author": "Brains",
+  "license": "MIT"
+}

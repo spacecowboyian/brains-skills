@@ -1,0 +1,10 @@
+{
+  "name": "Johnny.Decimal",
+  "id": "johnny-decimal",
+  "version": "1.0.0",
+  "description": "Assign every piece of knowledge a unique numeric ID within a strict two-level hierarchy so anything can be found in seconds",
+  "domains": ["personal", "productivity", "knowledge-management"],
+  "fields": ["jd_id", "area", "category", "title", "tags"],
+  "author": "Brains",
+  "license": "MIT"
+}

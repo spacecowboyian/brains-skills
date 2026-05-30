@@ -1,0 +1,10 @@
+{
+  "name": "PARA",
+  "id": "para",
+  "version": "1.0.0",
+  "description": "Organize all knowledge into four actionability-based buckets: Projects, Areas, Resources, and Archives",
+  "domains": ["personal", "productivity", "knowledge-management"],
+  "fields": ["bucket", "title", "status", "deadline", "tags"],
+  "author": "Brains",
+  "license": "MIT"
+}
