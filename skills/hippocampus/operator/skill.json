@@ -1,0 +1,21 @@
+{
+  "name": "Operator",
+  "id": "operator",
+  "type": "hippocampus",
+  "version": "1.0.0",
+  "description": "A project-scoped operating layout for running many concurrent projects: per-project state pages, hub-and-spoke open loops, and write-time synthesis (data → canonical → decisions)",
+  "domains": [
+    "productivity",
+    "work",
+    "personal"
+  ],
+  "fields": [
+    "title",
+    "slug",
+    "status",
+    "owner",
+    "tags"
+  ],
+  "author": "spacecowboyian",
+  "license": "MIT"
+}

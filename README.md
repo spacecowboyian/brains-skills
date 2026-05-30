@@ -6,33 +6,52 @@
 
 Each skill is a self-contained folder: a `skill.md` you point your AI at, a page template to drop into your knowledge base, and a manifest. Five minutes from zero to a fully wired knowledge domain.
 
+Skills come in two kinds:
+
+- **Hippocampus** — whole-vault *filing systems*. They decide **where** a page belongs. Pick **one** (or none).
+- **Lobes** — note *templates* for one type of record. They decide **what** a page contains. Use **many**.
+
+A lobe defines a note's fields; it never picks a folder. At create time it asks the active hippocampus skill where to file the page and records that path in the page's `filed_at` field. With no hippocampus active, a lobe falls back to a flat `<skill-id>/` folder. The two compose: lobe = *what*, hippocampus = *where*.
+
 ---
 
 ## Skills
 
+### 🧭 Hippocampus — filing systems (pick one)
+
 | Skill | Description | `skill.md` |
 |-------|-------------|------------|
-| [book-notes](skills/book-notes/) | Capture and query book insights, quotes, and takeaways | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/book-notes/skill.md) |
-| [weekly-review](skills/weekly-review/) | Reflect on each week and synthesize into next actions | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/weekly-review/skill.md) |
-| [meeting-notes](skills/meeting-notes/) | Structured meeting records with decisions and action items | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/meeting-notes/skill.md) |
-| [project-tracker](skills/project-tracker/) | Track project status, blockers, risks, and team | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/project-tracker/skill.md) |
-| [recipes](skills/recipes/) | Personal recipe database with meal planning support | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/recipes/skill.md) |
+| [para](skills/hippocampus/para/) | Organize everything into Projects, Areas, Resources, Archives by actionability | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/hippocampus/para/skill.md) |
+| [johnny-decimal](skills/hippocampus/johnny-decimal/) | Give every page a unique numeric ID in a strict two-level hierarchy | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/hippocampus/johnny-decimal/skill.md) |
+| [zettelkasten](skills/hippocampus/zettelkasten/) | Atomic, linked notes where connections surface emergent insight | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/hippocampus/zettelkasten/skill.md) |
+| [mind-palace](skills/hippocampus/mind-palace/) | Store and retrieve knowledge spatially via the method of loci | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/hippocampus/mind-palace/skill.md) |
+| [operator](skills/hippocampus/operator/) | Project-scoped layout for running many concurrent projects: per-project state, hub-and-spoke open loops, write-time synthesis | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/hippocampus/operator/skill.md) |
+
+### 🧩 Lobes — note templates (use many)
+
+| Skill | Description | `skill.md` |
+|-------|-------------|------------|
+| [book-notes](skills/lobes/book-notes/) | Capture and query book insights, quotes, and takeaways | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/lobes/book-notes/skill.md) |
+| [weekly-review](skills/lobes/weekly-review/) | Reflect on each week and synthesize into next actions | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/lobes/weekly-review/skill.md) |
+| [meeting-notes](skills/lobes/meeting-notes/) | Structured meeting records with decisions and action items | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/lobes/meeting-notes/skill.md) |
+| [project-tracker](skills/lobes/project-tracker/) | Track project status, blockers, risks, and team | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/lobes/project-tracker/skill.md) |
+| [recipes](skills/lobes/recipes/) | Personal recipe database with meal planning support | [→ raw](https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/lobes/recipes/skill.md) |
 
 ---
 
 ## Quick install
 
-Paste into your AI chat — replace `<skill-id>` with the skill name:
+Paste into your AI chat — replace `<group>/<skill-id>` with `hippocampus/<name>` or `lobes/<name>` from the tables above:
 
 ```
-Read https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/<skill-id>/skill.md
+Read https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/<group>/<skill-id>/skill.md
 then set up a new project in my Brains knowledge base using this skill.
 ```
 
-**Example — recipes:**
+**Example — recipes (a lobe):**
 
 ```
-Read https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/recipes/skill.md
+Read https://raw.githubusercontent.com/spacecowboyian/brains-skills/main/skills/lobes/recipes/skill.md
 then set up a new project in my Brains knowledge base using this skill.
 ```
 
@@ -47,13 +66,15 @@ That's it. The `skill.md` file contains everything the AI needs: agent instructi
 Each skill folder contains:
 
 ```
-skills/<skill-id>/
+skills/<group>/<skill-id>/      ← group is `hippocampus` or `lobes`
   skill.md          ← The install file. Agent instructions + page template, combined.
-  skill.json        ← Machine-readable manifest (name, version, fields, tags).
+  skill.json        ← Machine-readable manifest (name, version, type, fields, tags).
   template.md       ← Page template only (frontmatter + sections).
   instructions.md   ← Agent instructions only.
   README.md         ← Human docs, capabilities, example queries.
 ```
+
+`skill.json` carries a `"type"` field — `"hippocampus"` or `"lobe"` — so tools can route automatically; the folder grouping mirrors it for humans browsing the repo.
 
 `skill.md` is the primary artifact. Share it with your AI and it knows how to set up the project, create pages, and answer queries in that domain.
 

@@ -1,0 +1,21 @@
+{
+  "name": "Meeting Notes",
+  "id": "meeting-notes",
+  "type": "lobe",
+  "version": "1.0.0",
+  "description": "Structured meeting records with decisions and action items — queryable for follow-up and accountability",
+  "domains": [
+    "work",
+    "productivity"
+  ],
+  "fields": [
+    "date",
+    "attendees",
+    "agenda",
+    "decisions",
+    "action_items",
+    "notes"
+  ],
+  "author": "Brains",
+  "license": "MIT"
+}

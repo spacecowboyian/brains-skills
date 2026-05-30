@@ -1,0 +1,23 @@
+{
+  "name": "Recipes",
+  "id": "recipes",
+  "type": "lobe",
+  "version": "1.0.0",
+  "description": "Build a personal recipe database with meal planning, dietary filtering, and shopping list generation",
+  "domains": [
+    "personal",
+    "food"
+  ],
+  "fields": [
+    "recipe_name",
+    "prep_time",
+    "cook_time",
+    "servings",
+    "dietary_tags",
+    "ingredients",
+    "steps",
+    "notes"
+  ],
+  "author": "Brains",
+  "license": "MIT"
+}

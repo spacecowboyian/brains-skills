@@ -1,0 +1,24 @@
+{
+  "name": "Book Notes",
+  "id": "book-notes",
+  "type": "lobe",
+  "version": "1.0.0",
+  "description": "Capture book insights, key quotes, and personal takeaways — and query them by theme, author, or impact",
+  "domains": [
+    "personal",
+    "learning"
+  ],
+  "fields": [
+    "title",
+    "author",
+    "year",
+    "rating",
+    "genre",
+    "date_read",
+    "summary",
+    "key_quotes",
+    "how_it_changed_me"
+  ],
+  "author": "Brains",
+  "license": "MIT"
+}

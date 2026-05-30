@@ -1,0 +1,21 @@
+{
+  "name": "Mind Palace",
+  "id": "mind-palace",
+  "type": "hippocampus",
+  "version": "1.0.0",
+  "description": "Store and retrieve knowledge spatially by associating information with vivid locations in imagined or remembered spaces",
+  "domains": [
+    "personal",
+    "memory",
+    "knowledge-management"
+  ],
+  "fields": [
+    "palace",
+    "room",
+    "locus",
+    "sensory_anchor",
+    "memory"
+  ],
+  "author": "Brains",
+  "license": "MIT"
+}

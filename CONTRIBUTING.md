@@ -2,10 +2,17 @@
 
 ## Skill structure
 
-Every skill lives in `skills/<skill-id>/` with exactly five files:
+Every skill is one of two kinds, which sets its folder group:
+
+- **hippocampus** — a whole-vault filing system that decides *where* pages go (PARA, Johnny.Decimal, …). Lives in `skills/hippocampus/<skill-id>/`.
+- **lobe** — a note template for one record type that decides *what* a page contains (book-notes, recipes, …). Lives in `skills/lobes/<skill-id>/`.
+
+A lobe never hardcodes a folder. It declares `file_type` + `filed_at` in its template and, at create time, asks the active hippocampus skill where to file each page (falling back to a flat `<skill-id>/` folder if none is active). Each hippocampus skill includes a "Routing notes from lobes" section describing how it answers that.
+
+Every skill lives in `skills/<group>/<skill-id>/` with exactly five files:
 
 ```
-skills/<skill-id>/
+skills/<group>/<skill-id>/      ← group is `hippocampus` or `lobes`
   skill.md          ← Required. Agent instructions + page template combined. This is the install file.
   skill.json        ← Required. Machine-readable manifest.
   template.md       ← Required. Page template only (standalone).
@@ -54,6 +61,7 @@ Structure:
 {
   "name": "Human-Readable Name",
   "id": "kebab-case-id",
+  "type": "lobe",
   "version": "1.0.0",
   "description": "One-line description",
   "domains": ["personal", "work"],
@@ -64,6 +72,7 @@ Structure:
 ```
 
 - `id` must match the folder name exactly
+- `type` must be `"hippocampus"` or `"lobe"`, and match the folder group (`skills/hippocampus/…` or `skills/lobes/…`)
 - `domains`: use existing tags where possible — `personal`, `work`, `productivity`, `health`, `finance`, `food`, `learning`, `automotive`
 - `fields`: key frontmatter fields in the template
 
@@ -116,14 +125,17 @@ MIT
 ## Submission
 
 1. Fork this repo
-2. Create `skills/<your-skill-id>/` with all five files
-3. Open a PR: title `feat: add <skill-name> skill`
+2. Decide the kind: a filing system (hippocampus) or a note template (lobe)
+3. Create `skills/<group>/<your-skill-id>/` with all five files
+4. Open a PR: title `feat: add <skill-name> skill`
 
 ### Review checklist
 
 - [ ] All five files present
 - [ ] `skill.md` contains both agent instructions and page template
-- [ ] `skill.json` valid, `id` matches folder name
+- [ ] `skill.json` valid, `id` matches folder name, `type` matches folder group
+- [ ] Lobe: no hardcoded folder path; declares `file_type` + `filed_at` and defers filing to the active hippocampus
+- [ ] Hippocampus: includes a "Routing notes from lobes" section
 - [ ] Template has real frontmatter fields (not placeholder names like `field1`)
 - [ ] Template sections are specific to the domain (not generic `## Section 1`)
 - [ ] Instructions are actionable and domain-specific

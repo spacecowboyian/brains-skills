@@ -1,0 +1,21 @@
+{
+  "name": "Weekly Review",
+  "id": "weekly-review",
+  "type": "lobe",
+  "version": "1.0.0",
+  "description": "Reflect on each week and synthesize wins, challenges, lessons, and next-week goals into action items",
+  "domains": [
+    "personal",
+    "productivity"
+  ],
+  "fields": [
+    "week_start",
+    "energy_level",
+    "wins",
+    "challenges",
+    "lessons",
+    "next_week_goals"
+  ],
+  "author": "Brains",
+  "license": "MIT"
+}
